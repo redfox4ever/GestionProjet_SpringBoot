@@ -4,6 +4,8 @@ package tn.esprit.gestionprojet.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -16,4 +18,10 @@ public class Equipe {
     String nomEquipe;
     @Enumerated(EnumType.STRING)
     Domaine domaine;
+
+    @ManyToMany()
+    Set<Projet> projets;
+
+    @ManyToOne()
+    Entreprise entreprise;
 }

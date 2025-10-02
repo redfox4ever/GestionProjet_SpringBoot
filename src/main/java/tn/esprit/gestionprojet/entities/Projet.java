@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -16,4 +18,12 @@ public class Projet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idProjet;
     private String sujet;
+
+    @OneToOne()
+    DetailProjet detailProjet;
+
+    @ManyToMany(mappedBy = "projets")
+    Set<Equipe> equipe;
+
+
 }

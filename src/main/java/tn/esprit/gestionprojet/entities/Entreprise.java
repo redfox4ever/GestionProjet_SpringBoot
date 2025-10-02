@@ -2,7 +2,7 @@ package tn.esprit.gestionprojet.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
+import java.util.Set;
 
 
 @Entity
@@ -16,5 +16,8 @@ public class Entreprise {
     long idEntreprise;
     String nomEntreprise;
     String adresse;
+
+    @OneToMany(mappedBy = "entreprise")
+    Set<Equipe>equipes;
 
 }

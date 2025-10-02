@@ -19,4 +19,7 @@ public class DetailProjet {
     String technologied ;
     long cout ;
     Date dateDebut;
+
+    @OneToOne(mappedBy = "detailProjet")
+    Projet projet;
 }
