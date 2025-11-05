@@ -2,6 +2,7 @@ package tn.esprit.gestionprojet.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.gestionprojet.entities.Equipe;
 import tn.esprit.gestionprojet.entities.Projet;
 import tn.esprit.gestionprojet.services.IProjetService;
 import tn.esprit.gestionprojet.services.ProjetServiceImpl;
@@ -40,5 +41,20 @@ List<Projet> getAllProjet() {
     Projet getProjet(@PathVariable ("idProjet")long id) {
       return projetService.findProjectById(id);
 }
+@PutMapping("/assignProjetDtoProject/{idProjet}/{idDetailProjet}")
+    Projet assignProjetToDetailProjet(@PathVariable long idProjet, @PathVariable long idDetailProjet)
+{
+    return projetService.assignProjetDtoProjet(idProjet, idDetailProjet);
+}
+    @PutMapping("/assignProjetToEquipe/{idEquipe}/{idProjet}")
+    Equipe assignProjetToEquipe(@PathVariable long idEquipe, @PathVariable long idProjet)
+    {
+        return projetService.assignProjetToEquipe(idEquipe, idProjet);
+    }
 
+    @PutMapping("/assignProjetsToEquipe/{idEquipe}/{idProjet}")
+    Equipe assignProjetsToEquipe(@PathVariable long idEquipe, @PathVariable List<Long> idProjet)
+    {
+        return projetService.assignProjetsToEquipe(idEquipe, idProjet);
+    }
 }

@@ -1,6 +1,7 @@
 package tn.esprit.gestionprojet.services;
 
 
+import tn.esprit.gestionprojet.entities.Equipe;
 import tn.esprit.gestionprojet.entities.Projet;
 
 import java.util.List;
@@ -11,5 +12,8 @@ public interface IProjetService {
     void deleteProjet(long id);
     List<Projet> findAllProject();
     Projet findProjectById(long id);
+    Projet assignProjetDtoProjet(long idProjet, long idDetailProjet);
+    Equipe assignProjetToEquipe(long idEquipe, long idProjet);
+    Equipe assignProjetsToEquipe(long idEquipe, List<Long> idProjets);
 
 }
