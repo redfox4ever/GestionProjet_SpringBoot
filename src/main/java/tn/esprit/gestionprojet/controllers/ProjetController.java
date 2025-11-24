@@ -41,7 +41,8 @@ List<Projet> getAllProjet() {
     Projet getProjet(@PathVariable ("idProjet")long id) {
       return projetService.findProjectById(id);
 }
-@PutMapping("/assignProjetDtoProject/{idProjet}/{idDetailProjet}")
+
+@PutMapping("/assignProjetDetailProject/{idProjet}/{idDetailProjet}")
     Projet assignProjetToDetailProjet(@PathVariable long idProjet, @PathVariable long idDetailProjet)
 {
     return projetService.assignProjetDtoProjet(idProjet, idDetailProjet);
@@ -52,9 +53,23 @@ List<Projet> getAllProjet() {
         return projetService.assignProjetToEquipe(idEquipe, idProjet);
     }
 
-    @PutMapping("/assignProjetsToEquipe/{idEquipe}/{idProjet}")
-    Equipe assignProjetsToEquipe(@PathVariable long idEquipe, @PathVariable List<Long> idProjet)
+    @PutMapping("/assignProjetsToEquipe/{idEquipe}")
+    Equipe assignProjetsToEquipe(@PathVariable long idEquipe, @RequestParam List<Long> idProjet)
     {
         return projetService.assignProjetsToEquipe(idEquipe, idProjet);
     }
+
+    @PostMapping ("/AddProjetAndAssignProjetDetail/{idDetailProjet}")
+    Projet addProjetAndAssignDetailProjet(@RequestBody Projet projet, @PathVariable long idDetailProjet)
+    {
+        return projetService.addProjetAndAssignDetailProjet(projet, idDetailProjet);
+    }
+
+    @GetMapping("/RepoTest/{s}")
+    List<Projet> RepoTest(@PathVariable long s) {
+        return projetService.RepoTest(s);
+    }
+
+
+
 }

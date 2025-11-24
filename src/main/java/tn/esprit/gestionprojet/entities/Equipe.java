@@ -4,6 +4,7 @@ package tn.esprit.gestionprojet.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,7 +21,9 @@ public class Equipe {
     Domaine domaine;
 
     @ManyToMany()
-    Set<Projet> projets;
+    //Set<Projet> projets = new HashSet<>();
+    Set<Projet> projets ;
+
 
     @ManyToOne()
     Entreprise entreprise;

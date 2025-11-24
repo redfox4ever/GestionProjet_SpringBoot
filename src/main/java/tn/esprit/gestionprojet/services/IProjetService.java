@@ -16,4 +16,8 @@ public interface IProjetService {
     Equipe assignProjetToEquipe(long idEquipe, long idProjet);
     Equipe assignProjetsToEquipe(long idEquipe, List<Long> idProjets);
 
+    Projet addProjetAndAssignDetailProjet(Projet projet, long idDetailProjet);
+
+    List<Projet> RepoTest(long s);
+
 }

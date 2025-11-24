@@ -1,5 +1,6 @@
 package tn.esprit.gestionprojet.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -20,9 +21,14 @@ public class Projet {
     private String sujet;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+            @JsonIgnore
     DetailProjet detailProjet;
 
+
     @ManyToMany(mappedBy = "projets")
+    @ToString.Exclude
+            @JsonIgnore
     Set<Equipe> equipe;
 
 
