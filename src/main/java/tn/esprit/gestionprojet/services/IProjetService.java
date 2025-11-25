@@ -1,6 +1,8 @@
 package tn.esprit.gestionprojet.services;
 
 
+import org.springframework.data.repository.query.Param;
+import tn.esprit.gestionprojet.entities.Entreprise;
 import tn.esprit.gestionprojet.entities.Equipe;
 import tn.esprit.gestionprojet.entities.Projet;
 
@@ -19,5 +21,7 @@ public interface IProjetService {
     Projet addProjetAndAssignDetailProjet(Projet projet, long idDetailProjet);
 
     List<Projet> RepoTest(long s);
+
+    List<Entreprise> retrieveByAddress(String adresse);
 
 }

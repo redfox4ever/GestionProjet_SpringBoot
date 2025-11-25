@@ -2,6 +2,7 @@ package tn.esprit.gestionprojet.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.gestionprojet.entities.Entreprise;
 import tn.esprit.gestionprojet.entities.Equipe;
 import tn.esprit.gestionprojet.entities.Projet;
 import tn.esprit.gestionprojet.services.IProjetService;
@@ -70,6 +71,11 @@ List<Projet> getAllProjet() {
         return projetService.RepoTest(s);
     }
 
+    @GetMapping("/retrieve-by-address")
+    public List<Entreprise> retrieveByAddress(@RequestParam String adresse)
+    {
+        return projetService.retrieveByAddress(adresse);
+    }
 
 
 }

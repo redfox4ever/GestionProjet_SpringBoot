@@ -7,9 +7,11 @@ import lombok.extern.slf4j.XSlf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.gestionprojet.entities.DetailProjet;
+import tn.esprit.gestionprojet.entities.Entreprise;
 import tn.esprit.gestionprojet.entities.Equipe;
 import tn.esprit.gestionprojet.entities.Projet;
 import tn.esprit.gestionprojet.repositories.DetailProjetRepository;
+import tn.esprit.gestionprojet.repositories.EntrepriseRepository;
 import tn.esprit.gestionprojet.repositories.EquipeRepository;
 import tn.esprit.gestionprojet.repositories.ProjetRepository;
 
@@ -24,6 +26,7 @@ public class ProjetServiceImpl implements IProjetService {
   final ProjetRepository projetRepository;
   final DetailProjetRepository detailProjetRepository;
   final EquipeRepository equipeRepository;
+  final EntrepriseRepository entrepriseRepository;
 
 
     @Override
@@ -106,6 +109,9 @@ public class ProjetServiceImpl implements IProjetService {
     {
         return projetRepository.findByEquipeIdEquipe(s);
     }
-
+    public List<Entreprise> retrieveByAddress(String adresse)
+    {
+        return entrepriseRepository.retrieveByAddress(adresse);
+    }
 
 }
